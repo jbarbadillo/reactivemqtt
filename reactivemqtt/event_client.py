@@ -21,5 +21,5 @@ class EventClient():
 
 
     def on_event(self, client, userdata, msg):
-        self.observer.on_next(tuple([msg.topic, msg.payload.decode("utf-8")]))
+        self.observer.on_next([msg.topic, msg.payload.decode("utf-8")])
 

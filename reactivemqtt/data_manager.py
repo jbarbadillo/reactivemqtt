@@ -7,4 +7,5 @@ class DataManager:
             .subscribe(self._process_data)
 
     def _process_data(self, data):
-        print("{}: {}".format(__name__, data))
+        print("{}: {}".format(__name__, data[0]))
+        print("message: {}".format( data[1]))
