@@ -12,4 +12,3 @@ install:
 # command to run tests
 script:
   - python ./tests/test_app.py  # or py.test for Python versions 3.5 and below
- 
