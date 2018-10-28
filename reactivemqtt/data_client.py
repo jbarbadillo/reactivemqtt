@@ -1,12 +1,12 @@
 import paho.mqtt.client as mqtt
 
-class MqttClient():
+class DataClient():
     def __init__(self):
         client = mqtt.Client()
         client.on_connect = self.on_connect
         client.on_message = self.on_message
         self.client = client
-        client.connect("iot.eclipse.org", 1883, 60)
+        client.connect("test.mosquitto.org", 1883, 60)
         client.loop_start()
         return client
 
