@@ -1,7 +1,10 @@
 import paho.mqtt.client as mqtt
 
 
-class SubscriberClient():
+class ObjectPosClient():
+    """
+        mqtt client that gathers positions and object identifications
+    """
     def __init__(self, observer):
         self.observer = observer
         client = mqtt.Client()

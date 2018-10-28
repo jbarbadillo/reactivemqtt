@@ -2,11 +2,11 @@ from time import sleep
 from rx import Observable
 
 from reactivemqtt.data_client import DataClient
-from reactivemqtt.subscriber_client import SubscriberClient
+from reactivemqtt.object_pos_client import ObjectPosClient
 
 def main():
     data = DataClient()
-    observer = Observable.create(SubscriberClient).share()
+    observer = Observable.create(ObjectPosClient).share()
     observer.subscribe(lambda s: print(s))
 
     data.client.publish("data/position",payload="[1, (2,2,34)", qos=2)
