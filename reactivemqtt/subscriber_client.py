@@ -6,15 +6,15 @@ class SubscriberClient():
         client.on_connect = self.on_connect
         client.on_message = self.on_message
         self.client = client
-        client.connect("test.mosquitto.org", 1883, 60)
+        client.connect("iot.eclipse.org")
         client.loop_start()
-        return client
 
     def on_connect(self, client, userdat, flags, rc):
         print("Connected with result code " + str(rc))
-        self.client.subscribe("position",qos=0)
-        self.client.subscribe("objects", qos=0)
+        self.client.subscribe("data/position", qos=2)
+        self.client.subscribe("data/object", qos=2)
 
     def on_message(self, client, userdata, msg):
+        print("received")
         print(msg.topic + " " + str(msg.payload))
 
