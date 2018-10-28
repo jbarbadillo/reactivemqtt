@@ -8,10 +8,12 @@ from reactivemqtt.event_client import EventClient
 def main():
     data = DataClient()
     object_positions = Observable.create(ObjectPosClient).share()
-    object_positions.subscribe(lambda s: print(s))
+    # object_positions.subscribe(lambda s: print(s))
 
     events = Observable.create(EventClient).share()
-    events.subscribe(lambda s: print(s))
+
+    Observable.merge(object_positions, events) \
+        .subscribe(lambda s: print(s))
 
     data.client.publish("event/status", payload="start_tracking", qos=2)
     data.client.publish("data/position",payload="[1, (2,2,34)", qos=2)
