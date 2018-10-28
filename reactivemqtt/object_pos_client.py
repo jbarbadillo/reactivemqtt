@@ -22,8 +22,10 @@ class ObjectPosClient():
         self.client.subscribe("data/object", qos=2)
 
     def on_position(self, client, userdata, msg):
-        self.observer.on_next(msg.payload)
+        self.observer.on_next(tuple([msg.topic, msg.payload.decode("utf-8")]))
+
 
     def on_object(self, client, userdata, msg):
-        self.observer.on_next(msg.payload)
+        self.observer.on_next(tuple([msg.topic, msg.payload.decode("utf-8")]))
+
 
