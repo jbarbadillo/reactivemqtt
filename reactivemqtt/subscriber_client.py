@@ -19,12 +19,8 @@ class SubscriberClient():
         self.client.subscribe("data/object", qos=2)
 
     def on_position(self, client, userdata, msg):
-        # print("position received")
         self.observer.on_next(msg.payload)
-        # print(msg.topic + " " + str(msg.payload))
 
     def on_object(self, client, userdata, msg):
-        # print("object received")
         self.observer.on_next(msg.payload)
-        # print(msg.topic + " " + str(msg.payload))
 
