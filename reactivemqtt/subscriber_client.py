@@ -5,6 +5,9 @@ class SubscriberClient():
         client = mqtt.Client()
         client.on_connect = self.on_connect
         client.on_message = self.on_message
+        client.message_callback_add("data/position", self.on_position)
+        client.message_callback_add("data/object", self.on_object)
+
         self.client = client
         client.connect("iot.eclipse.org")
         client.loop_start()
@@ -13,6 +16,14 @@ class SubscriberClient():
         print("Connected with result code " + str(rc))
         self.client.subscribe("data/position", qos=2)
         self.client.subscribe("data/object", qos=2)
+
+    def on_position(self, client, userdata, msg):
+        print("position received")
+        print(msg.topic + " " + str(msg.payload))
+
+    def on_object(self, client, userdata, msg):
+        print("object received")
+        print(msg.topic + " " + str(msg.payload))
 
     def on_message(self, client, userdata, msg):
         print("received")
