@@ -7,9 +7,8 @@ from reactivemqtt.event_client import EventClient
 
 def main():
     data = DataClient()
-    object_positions = Observable.create(ObjectPosClient).share()
-    # object_positions.subscribe(lambda s: print(s))
 
+    object_positions = Observable.create(ObjectPosClient).share()
     events = Observable.create(EventClient).share()
 
     Observable.merge(object_positions, events) \
