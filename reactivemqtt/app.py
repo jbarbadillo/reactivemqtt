@@ -3,11 +3,15 @@ from rx import Observable
 
 from reactivemqtt.data_client import DataClient
 from reactivemqtt.object_pos_client import ObjectPosClient
+from reactivemqtt.event_client import EventClient
 
 def main():
     data = DataClient()
-    observer = Observable.create(ObjectPosClient).share()
-    observer.subscribe(lambda s: print(s))
+    object_positions = Observable.create(ObjectPosClient).share()
+    object_positions.subscribe(lambda s: print(s))
+
+    events = Observable.create(EventClient).share()
+    events.subscribe(lambda s: print(s))
 
     data.client.publish("data/position",payload="[1, (2,2,34)", qos=2)
     data.client.publish("data/object",payload="[1, car]", qos=2)
