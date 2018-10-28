@@ -3,7 +3,11 @@
 
 
 # reactivemqtt
+
 Examples with reactive python and mqtt
+* simple app that connects to a remote broker and gathers data using rxpy
+* some samples for rxpy, mqtt
+* a suite of tests
 
 ## Requirements
 
@@ -15,10 +19,9 @@ Install this libraries in your environment
     pip install paho-mqtt
     pip install pytest
 
-## Run the app
+## Run code and samples
 
 You can launch the app running this command
 
     python -m reactivemqtt.app
-
 
