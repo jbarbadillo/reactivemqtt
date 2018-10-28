@@ -13,8 +13,7 @@ def main():
     events = Observable.create(EventClient).share()
 
     Subscriber([object_positions, events])
-    # Observable.merge(object_positions, events) \
-    #     .subscribe(lambda s: print(s))
+
 
     data.client.publish("event/status", payload="start_tracking", qos=2)
     data.client.publish("data/position",payload="[1, (2,2,34)", qos=2)
