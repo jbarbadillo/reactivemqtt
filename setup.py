@@ -2,7 +2,7 @@ from setuptools import setup
 setup(
     name = 'reactivemqtt',
     version='1.0',
-    packages = ['reactivemqtt'],
+    packages = ['reactivemqtt', "rx", "pytest", "paho-mqtt"],
     license = 'MIT',
     description = 'Examples for reactive mqtt',
     author = "Javier Barbadillo",
