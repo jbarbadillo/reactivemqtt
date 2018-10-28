@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/github/license/jbarbadillo/reactivemqtt.svg)](https://github.com/jbarbadillo/reactivemqtt/blob/master/LICENSE)
+
 # reactivemqtt
 Examples with reactive python and mqtt
 
