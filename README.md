@@ -6,12 +6,12 @@
 
 Examples with reactive python and mqtt
 * simple app that connects to a remote broker and gathers data using rxpy
-* some samples for rxpy, mqtt
+* some samples for [rxpy](https://github.com/ReactiveX/RxPY), [mqtt](https://pypi.org/project/paho-mqtt/)
 * a suite of tests
 
 ## Requirements
 
-To run this examples you will need rxpy, paho-mqtt and pytest
+To run this examples you will need rxpy, paho-mqtt and [pytest](https://docs.pytest.org/en/latest/)
 
 Install this libraries in your environment
 
