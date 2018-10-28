@@ -1,8 +1,8 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 setup(
     name = 'reactivemqtt',
     version='1.0',
-    packages = ['reactivemqtt', "rx", "pytest", "paho-mqtt"],
+    packages = find_packages(),
     license = 'MIT',
     description = 'Examples for reactive mqtt',
     author = "Javier Barbadillo",

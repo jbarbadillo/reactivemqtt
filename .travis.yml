@@ -5,6 +5,9 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+before_install:
+  - "pip install -U pip"
+  - "python setup.py install"
 # command to install dependencies
 install:
   - pip install .
