@@ -34,3 +34,9 @@ For launching each sample just run
     python -m samples.merging_infinite_sources.py
     python -m samples.merging_observables.py
     python -m samples.simple_observer.py
+    
+## Tests
+
+You will need pytest for running tests
+
+    pytest tests/test_generic_observer.py
