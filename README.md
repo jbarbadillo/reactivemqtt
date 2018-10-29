@@ -21,7 +21,16 @@ Install this libraries in your environment
 
 ## Run code and samples
 
+### Main module app
+
 You can launch the app running this command
 
     python -m reactivemqtt.app
 
+### Samples
+
+For launching each sample just run
+ 
+    python -m samples.merging_infinite_sources.py
+    python -m samples.merging_observables.py
+    python -m samples.simple_observer.py
