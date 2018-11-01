@@ -14,3 +14,4 @@ script:
   - python ./samples/merging_observables.py
   - python ./samples/parallelization.py
   - python ./samples/optimal_threading.py
+  - python ./samples/no_threading.py
