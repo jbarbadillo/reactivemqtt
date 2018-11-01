@@ -34,6 +34,11 @@ For launching each sample just run
     python -m samples.merging_infinite_sources.py
     python -m samples.merging_observables.py
     python -m samples.simple_observer.py
+    python -m samples.no_threading.py
+    python -m samples.optimal_threading.py
+    python -m samples.parallelization.py
+    python -m samples.observe_on.py
+    python -m samples.work_redirection.py
     
 ## Tests
 
