@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 
 
-class EventClient():
+class EventReceiver():
     """
         mqtt client that gathers positions and object identifications
     """

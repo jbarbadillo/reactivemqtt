@@ -3,14 +3,14 @@ from rx import Observable
 
 from reactivemqtt.mqtt_client import MqttClient
 from reactivemqtt.object_pos_client import ObjectPosClient
-from reactivemqtt.event_client import EventClient
+from reactivemqtt.event_receiver import EventReceiver
 from reactivemqtt.data_receiver import DataReceiver
 
 def main():
     data_publisher = MqttClient()
 
     object_positions = Observable.create(ObjectPosClient).share()
-    events = Observable.create(EventClient).share()
+    events = Observable.create(EventReceiver).share()
 
     DataReceiver([object_positions, events])
 
