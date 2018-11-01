@@ -7,27 +7,27 @@ from rx import Observable
 
 from reactivemqtt.mqtt_client import MqttClient
 from reactivemqtt.object_receiver import ObjectReceiver
-from reactivemqtt.event_receiver import EventReceiver
-from reactivemqtt.data_subscriber import DataSubscriber
+from reactivemqtt.tracking_receiver import TrackingReceiver
+from reactivemqtt.event_subscriber import EventSubscriber
 
 def main():
-    data_publisher = MqttClient()
+    event_publisher = MqttClient()
 
     object_positions = Observable.create(ObjectReceiver).share()
-    events = Observable.create(EventReceiver).share()
+    events = Observable.create(TrackingReceiver).share()
 
-    DataSubscriber([object_positions, events])
+    EventSubscriber([object_positions, events])
 
 
-    data_publisher.client.publish("event/status", payload="start_tracking", qos=2)
-    data_publisher.client.publish("data/position",payload="[1, (2,2,34)", qos=2)
-    data_publisher.client.publish("data/object",payload="[1, car]", qos=2)
-    data_publisher.client.publish("data/position", payload="[1, (2,2,37)", qos=2)
-    data_publisher.client.publish("data/object", payload="[1, car]", qos=2)
-    data_publisher.client.publish("data/position", payload="[2, (0,0,2)", qos=2)
-    data_publisher.client.publish("data/object", payload="[2, person]", qos=2)
+    event_publisher.client.publish("tracking/status", payload="start_tracking", qos=2)
+    event_publisher.client.publish("data/position",payload="[1, (2,2,34)", qos=2)
+    event_publisher.client.publish("data/object",payload="[1, car]", qos=2)
+    event_publisher.client.publish("data/position", payload="[1, (2,2,37)", qos=2)
+    event_publisher.client.publish("data/object", payload="[1, car]", qos=2)
+    event_publisher.client.publish("data/position", payload="[2, (0,0,2)", qos=2)
+    event_publisher.client.publish("data/object", payload="[2, person]", qos=2)
     sleep(1)
-    data_publisher.client.publish("event/status", payload="stop_tracking", qos=2)
+    event_publisher.client.publish("tracking/status", payload="stop_tracking", qos=2)
 
     sleep(1)
 

@@ -1,4 +1,4 @@
-from reactivemqtt import data_subscriber
+from reactivemqtt import event_subscriber
 import pytest
 
 def test_can_observe_feed():
