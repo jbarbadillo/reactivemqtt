@@ -11,7 +11,6 @@ setup(
     download_url = 'https://github.com/jbarbadillo/reactivemqtt/archive/1.0.tar.gz',
     keywords = ['rx', 'mqtt'],
     classifiers = ['Programming Language :: Python',
-                   'Programming Language :: Python :: 2.7',
                    'Programming Language :: Python :: 3.2',
                    'Programming Language :: Python :: 3.3',
                    'Programming Language :: Python :: 3.4',
