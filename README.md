@@ -5,6 +5,7 @@
 # reactivemqtt
 
 Examples with reactive python and mqtt
+
 * simple app that connects to a remote broker and gathers data using rxpy
 * some samples for [rxpy](https://github.com/ReactiveX/RxPY), [mqtt](https://pypi.org/project/paho-mqtt/)
 * a suite of tests
@@ -39,6 +40,9 @@ For launching each sample just run
     python -m samples.parallelization.py
     python -m samples.observe_on.py
     python -m samples.work_redirection.py
+    
+Each sample shows a use case for rxpy with the goal of clarifying and documment 
+reactive programming.
     
 ## Tests
 
