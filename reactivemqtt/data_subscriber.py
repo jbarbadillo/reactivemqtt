@@ -1,6 +1,7 @@
 from rx import Observable
 
 class DataSubscriber:
+    """Subscribes to different data events to process data"""
     def __init__(self, sources):
         Observable.from_(sources) \
             .merge_all() \
