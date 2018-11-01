@@ -24,4 +24,3 @@ Observable.range(1,5) \
     .subscribe(on_next=lambda s: print("thread {0}, value {1}".format(current_thread().name, s)),
                on_completed=lambda: print("finished task 2"))
 
-input("Press key to quit\n")
