@@ -1,13 +1,13 @@
 from time import sleep
 from rx import Observable
 
-from reactivemqtt.data_client import DataClient
+from reactivemqtt.mqtt_client import MqttClient
 from reactivemqtt.object_pos_client import ObjectPosClient
 from reactivemqtt.event_client import EventClient
 from reactivemqtt.data_manager import DataManager
 
 def main():
-    data = DataClient()
+    data = MqttClient()
 
     object_positions = Observable.create(ObjectPosClient).share()
     events = Observable.create(EventClient).share()

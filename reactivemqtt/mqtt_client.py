@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-class DataClient():
+class MqttClient():
     def __init__(self):
         client = mqtt.Client()
         client.on_connect = self.on_connect
