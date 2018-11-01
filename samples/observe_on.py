@@ -27,8 +27,8 @@ Observable.range(1,5) \
 # task 3, infinite
 Observable.interval(1000) \
     .map(lambda s: s*10) \
-    .map(lambda s: simulate_calculation(s)) \
     .observe_on(pool_scheduler) \
+    .map(lambda s: simulate_calculation(s)) \
     .subscribe(on_next=lambda s: print("thread {0}, value {1}".format(current_thread().name, s)),
                on_completed=lambda: print("finished task 3"))
 input("Press key to quit\n")
