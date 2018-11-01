@@ -1,3 +1,7 @@
+"""
+A simple application that shows how different mqtt clients can subscribe on the same observer using rxpy
+in order to receive data reactively.
+"""
 from time import sleep
 from rx import Observable
 
