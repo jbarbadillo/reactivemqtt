@@ -14,8 +14,8 @@ print("using {0} thread pool".format(optimal_threads))
 
 numbers = Observable.from_(["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"])
 # task 1
-Observable.interval(2000) \
-    .flat_map(lambda s:
+Observable.interval(6000) \
+    .switch_map(lambda s:
               numbers \
                   .map(lambda s: simulate_calculation(s)) \
                   .subscribe_on(pool_scheduler)
