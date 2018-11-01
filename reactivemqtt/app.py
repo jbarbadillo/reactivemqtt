@@ -4,7 +4,7 @@ from rx import Observable
 from reactivemqtt.mqtt_client import MqttClient
 from reactivemqtt.object_pos_client import ObjectPosClient
 from reactivemqtt.event_client import EventClient
-from reactivemqtt.data_manager import DataManager
+from reactivemqtt.data_receiver import DataReceiver
 
 def main():
     data_publisher = MqttClient()
@@ -12,7 +12,7 @@ def main():
     object_positions = Observable.create(ObjectPosClient).share()
     events = Observable.create(EventClient).share()
 
-    DataManager([object_positions, events])
+    DataReceiver([object_positions, events])
 
 
     data_publisher.client.publish("event/status", payload="start_tracking", qos=2)
