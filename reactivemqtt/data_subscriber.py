@@ -1,6 +1,6 @@
 from rx import Observable
 
-class DataReceiver:
+class DataSubscriber:
     def __init__(self, sources):
         Observable.from_(sources) \
             .merge_all() \
