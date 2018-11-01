@@ -12,3 +12,6 @@ install:
 script:
   - python ./tests/test_generic_observer.py  # or py.test for Python versions 3.5 and below
   - python ./samples/merging_observables.py
+  - python ./samples/parallelization.py
+  - python ./samples/optimal_threading.py
+  - python ./samples/work_redirection.py
