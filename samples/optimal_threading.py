@@ -10,16 +10,18 @@ def simulate_calculation(value):
 optimal_threads = multiprocessing.cpu_count() + 1
 pool_scheduler = ThreadPoolScheduler(optimal_threads)
 
-print("using {0} threads".format(optimal_threads))
+print("using {0} thread pool".format(optimal_threads))
 # task 1
 Observable.from_(["one", "two", "three", "four", "five"]) \
     .map(lambda s: simulate_calculation(s)) \
+    .subscribe_on(pool_scheduler) \
     .subscribe(on_next=lambda s: print("thread {0}, value {1}".format(current_thread().name, s)),
                on_completed=lambda: print("finished task 1"))
 # task 2
 Observable.range(1,5) \
     .map(lambda s: simulate_calculation(s)) \
+    .subscribe_on(pool_scheduler) \
     .subscribe(on_next=lambda s: print("thread {0}, value {1}".format(current_thread().name, s)),
                on_completed=lambda: print("finished task 2"))
 
-input("Press key to quit\nq")
+input("Press key to quit\n")
