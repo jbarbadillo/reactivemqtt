@@ -32,6 +32,38 @@ def printword(word):
     print(word)
     
 def example():
+    """
+    Example output
+    ojete
+    calor
+    muy
+    rico
+    no
+    se
+    que
+    mierdas
+    hago
+    aqui
+    in
+    the
+    middle
+    of
+    the
+    night
+    ou
+    yeah
+    motherfucker
+    siempre
+    es
+    verano
+    con
+    el
+    pepino
+    en
+    la
+    mano
+    
+    """
     reader = Reader("samples/data/some_text.txt")
     reader.subscribe(on_next=printword)
     reader.start()
