@@ -17,8 +17,7 @@ class Reader(Subject):
     def start(self):
         
         if not self.disposable:
-            self.disposable =  Observable.create \
-                .map(lambda s: self.source) \
+            self.disposable =  self.source \
                 .subscribe(on_next=self.emit)                
     
     def stop(self):
