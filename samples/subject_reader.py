@@ -3,6 +3,10 @@ from rx import Observable
 import re
 
 class Reader(Subject):
+    """
+    Represents an observable reader, that also subscribes to another source
+    and emits events
+    """
     def __init__(self, filename):
         super().__init__()
         self.disposable = None
@@ -18,12 +22,13 @@ class Reader(Subject):
         self.on_next(word)
         
     def start(self):
-        
+        """Subscribes to source"""
         if not self.disposable:
             self.disposable =  self.source \
                 .subscribe(on_next=self.emit)                
     
     def stop(self):
+        """Disposes source"""
         if self.disposable:
             self.disposable.dispose()
             self.disposable = None
