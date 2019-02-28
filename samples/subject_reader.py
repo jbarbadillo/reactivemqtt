@@ -9,7 +9,8 @@ class Reader(Subject):
         file = open(filename, 'r')
         self.source = Observable.from_(file) \
             .map(lambda s: Observable.from_(s.split())) \
-            .merge_all()
+            .merge_all() \
+            .map(lambda s: s.upper())
        
     def emit(self, word):
         self.on_next(word)
