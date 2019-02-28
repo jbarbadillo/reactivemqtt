@@ -10,7 +10,7 @@ class Reader(Subject):
         file = open(filename, 'r')
         self.source = Observable.from_(file) \
             .map(lambda s: Observable.from_(s.split())) \
-            .merge_all() \
+            .concat_all() \
             .map(lambda w: re.sub(r'[^\w\s]','', w)) \
             .map(lambda s: s.lower())
        
