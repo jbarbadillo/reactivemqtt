@@ -32,3 +32,6 @@ def example():
     reader = Reader("path/to/some/file.txt")
     reader.subscribe(on_next=printword)
     reader.start()
+
+if __name__ == "__main__":
+    example()
