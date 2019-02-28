@@ -25,8 +25,9 @@ class Reader(Subject):
         """Subscribes to source"""
         if not self.disposable:
             self.disposable =  self.source \
-                .subscribe(on_next=self.emit)                
-    
+                .subscribe(on_next=self.emit)      
+            
+
     def stop(self):
         """Disposes source"""
         if self.disposable:
