@@ -1,3 +1,4 @@
+
 from rx.subjects import Subject
 from rx import Observable
 import re
@@ -5,7 +6,10 @@ import re
 class Reader(Subject):
     """
     Represents an observable reader, that also subscribes to another source
-    and emits events
+    and emits events.
+
+    This example shows how to convert a static text file into a dynamic flow of words to
+    ilustrate how reactive programming can be used to process every data source.
     """
     def __init__(self, filename):
         super().__init__()
