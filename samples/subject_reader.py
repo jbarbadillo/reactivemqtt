@@ -17,7 +17,7 @@ class Reader(Subject):
     def start(self):
         
         if not self.disposable:
-            self.disposable =  Observable.interval(1000) \
+            self.disposable =  Observable.create \
                 .map(lambda s: self.source) \
                 .subscribe(on_next=self.emit)                
     
@@ -25,3 +25,11 @@ class Reader(Subject):
         if self.disposable:
             self.disposable.dispose()
             self.disposable = None
+
+def printword(word):
+    print(word)
+    
+def example():
+    reader = Reader("path/to/some/file.txt")
+    reader.subscribe(on_next=printword)
+    reader.start()
