@@ -31,7 +31,13 @@ class Reader(Subject):
 def printword(word):
     print(word)
     
-def example():
+def example():    
+    reader = Reader("samples/data/some_text.txt")
+    reader.subscribe(on_next=printword)
+    reader.start()
+
+if __name__ == "__main__":
+    example()
     """
     Example output
     ojete
@@ -43,9 +49,3 @@ def example():
     ...
     
     """
-    reader = Reader("samples/data/some_text.txt")
-    reader.subscribe(on_next=printword)
-    reader.start()
-
-if __name__ == "__main__":
-    example()
