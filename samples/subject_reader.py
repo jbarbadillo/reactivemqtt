@@ -1,5 +1,6 @@
 from rx.subjects import Subject
 from rx import Observable
+import re
 
 class Reader(Subject):
     def __init__(self, filename):
@@ -10,7 +11,8 @@ class Reader(Subject):
         self.source = Observable.from_(file) \
             .map(lambda s: Observable.from_(s.split())) \
             .merge_all() \
-            .map(lambda s: s.upper())
+            .map(lambda w: re.sub(r'[^\w\s]','', w)) \
+            .map(lambda s: s.lower())
        
     def emit(self, word):
         self.on_next(word)
