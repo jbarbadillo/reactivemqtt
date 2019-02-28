@@ -1,3 +1,5 @@
+import os
+
 from rx.subjects import Subject
 from rx import Observable
 
@@ -29,7 +31,9 @@ def printword(word):
     print(word)
     
 def example():
-    reader = Reader("path/to/some/file.txt")
+    script_dir = os.path.dirname(__file__)
+    path = "/data/some_text.txt"
+    reader = Reader(os.path.join(script_dir, path))
     reader.subscribe(on_next=printword)
     reader.start()
 
