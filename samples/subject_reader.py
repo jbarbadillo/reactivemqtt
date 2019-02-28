@@ -31,8 +31,6 @@ def printword(word):
     print(word)
     
 def example():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    path = "/data/some_text.txt"
     reader = Reader("samples/data/some_text.txt")
     reader.subscribe(on_next=printword)
     reader.start()
