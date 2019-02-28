@@ -6,6 +6,7 @@ class Reader(Subject):
         super().__init__()
         self.disposable = None
         self.filename = filename
+        file = open(filename, 'r')
         self.source = Observable.from_(file) \
             .map(lambda s: Observable.from_(s.split())) \
             .merge_all()
@@ -14,7 +15,7 @@ class Reader(Subject):
         self.on_next(word)
         
     def start(self):
-        fp = open(filename, 'r')
+        
         if not self.disposable:
             self.disposable =  Observable.interval(1000) \
                 .map(lambda s: self.source) \
