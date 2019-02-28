@@ -1,5 +1,3 @@
-import os
-
 from rx.subjects import Subject
 from rx import Observable
 
